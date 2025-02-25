@@ -14,13 +14,6 @@ function tablesEqual(table1, table2)
     end
     return true
 end
--- спать, но внимание, основной цикл повисает
-function sleep(seconds)
-    local end_time = os.clock() + seconds
-    while os.clock() < end_time do
-        -- Busy-wait
-    end
-end
 
 --[[ КОНЕЦ ОБЪЯВЛЕНИЯ ФУНКЦИЙ LUA ]]--
 
@@ -41,16 +34,11 @@ local currentStage = 0 -- Переменная для отслеживания �
 
 --[[ НАЧАЛО СИСТЕМНЫХ ФУНКЦИЙ ДВИЖКА ]]--
 
-
--- Загрузка музыки и локации
-
--- без external как второго аргумента играет музыку из res/data.bin
-loadMusic("PublicFacility.mp3")
+-- loadMusic и loadMusicExternal. Первый грузит из res/data.bin, второй откуда скажете в файловой системе.
+loadMusicExternal("./res/p2is_pub_fac_ost.mp3")
 playMusic()
--- 19.0 - размер модельки
-loadLocation("res/area1.glb", 19.0)
 
-function _2dEventLoop()
+function startDialogCoroutine()
     dialogCoroutine = coroutine.create(function()
         -- 360 - градус для поворота, 130 - скорость поворота
         rotateCamera(360, 130)
@@ -58,7 +46,8 @@ function _2dEventLoop()
         startCubeRotation(1, 90, 80, 10)
         -- напишите сюда код, который будет инициализироваться сразу после входа в локацию. Пример:
         -- "Yukino" - имя, после нее в фигурных скобках диалоговый текст, страницы разделены запятой. После идет эмоция, заготовка для показа реакции персонажа над диалоговым окном, потом страница на которой должен быть выбор(отсутствие выбора - -1), после идут варианты выбора в фигур. скобках, разделены запятой, показываются друг над другом
-        dialogBox("Yukino", {" Good job on the coverage. There's a letter for you, Maya. But there's no return address on it..."}, "", -1, {""},1)
+        --dialogBox("Sans", {"take care of yourself, kid. 'cause someone really cares about you."}, "empty", -1, {""}, 0)
+        dialogBox("Yukino", {" Good job on the coverage. There's a letter for you, Maya. But there's no return address on it..."}, "", -1, {""}, 0)
         -- необходимо, чтобы диалог не начинался до того как закончится прошлый
         while isDialogExecuted() do
             coroutine.yield() -- Ожидание завершения диалога
@@ -96,7 +85,7 @@ function _2dEventLoop()
     end)
 end
 
-function checkDialogStatus()
+function _3dEventLoop()
     -- получает координаты персонажа, записываются как { X, Y, Z } в массиве. Формат - float
     local cubePosition = { getPlayerX(), getPlayerY(), getPlayerZ() } -- Получение текущей позиции куба
     -- Проверка, достиг ли куб нужной позиции
@@ -111,7 +100,7 @@ function checkDialogStatus()
             while isDialogExecuted() do
                 coroutine.yield()
             end
-            dialogBox("You", {" .........?"}, 0, -1, {""})
+            dialogBox("You", {" .........?"}, 0, -1, {""}, 1)
             while isDialogExecuted() do
                 coroutine.yield()
             end
@@ -155,8 +144,8 @@ function checkDialogStatus()
             while isDialogExecuted() do
                 coroutine.yield()
             end
-            dialogBox("You", {" Who would want to read about a green brat?"}, 0, 0, {"Huh...?", "I thought it was important."})
             startCubeRotation(3, 270, 80, 10)
+            dialogBox("You", {" Who would want to read about a green brat?"}, "", 0, {"Huh...?", "I thought it was important."}, 1)
             while isDialogExecuted() do
                 coroutine.yield()
                 answerValue = getAnswerValue()
@@ -177,7 +166,7 @@ function checkDialogStatus()
                 coroutine.yield()
             end
             startCubeRotation(3, 90, 80, 10)
-            dialogBox("Mizuno", {"Oh, by the way, you can just forget about this afternoon...the time off you asked for... ", "If you don't like it, I've got plenty of other reporters that would love to take your spot. So what are you waiting for?"}, "", -1, {""}), 1
+            dialogBox("Mizuno", {"Oh, by the way, you can just forget about this afternoon...the time off you asked for... ", "If you don't like it, I've got plenty of other reporters that would love to take your spot. So what are you waiting for?"}, "", -1, {""}, 1)
             while isDialogExecuted() do
                 coroutine.yield()
             end
@@ -196,7 +185,7 @@ function checkDialogStatus()
 end
 
 -- Функция для обновления диалога
-function _3dEventLoop()
+function _2dEventLoop()
     if dialogCoroutine and coroutine.status(dialogCoroutine) ~= "dead" then
         coroutine.resume(dialogCoroutine) -- Возобновление выполнения корутины
     end
@@ -211,7 +200,7 @@ end
 setFriendlyZone(1) -- 1 - дружелюбно, 0 - враждебно, т.е появляются случайные встречи с врагами
 -- Установка модели игрока
 -- 1 аргумент путь, второй - размер
-setPlayerModel("res/mc.glb", 3.0)
+setPlayerModel("res/mc.glb", 0.02)
 -- Настройка позиции камеры
 -- установка камеры и ее возможости по X Y Z
 changeCameraPosition(0.0, 10.0, 10.0)
@@ -229,9 +218,9 @@ howMuchModels(3) -- Установка количества моделей в с
 
 -- Установка модели кубов для Сергея и Алексея
 --первый - индекс куба, второй путь, третий размер
-setCubeModel(1, "res/mc.glb", 3.0) -- Установка модели для куба NPC no.1
-setCubeModel(2, "res/mc.glb", 3.0) -- Установка модели для куба NPC no.2
-setCubeModel(3, "res/mc.glb", 3.0) -- Установка модели для куба NPC no.3
+setCubeModel(1, "res/mc.glb", 0.02) -- Установка модели для куба NPC no.1
+setCubeModel(2, "res/mc.glb", 0.02) -- Установка модели для куба NPC no.2
+setCubeModel(3, "res/mc.glb", 0.02) -- Установка модели для куба NPC no.3
 -- инициализация событий
 startDialogCoroutine()
 
