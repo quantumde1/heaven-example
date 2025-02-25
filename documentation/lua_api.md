@@ -140,3 +140,5 @@ Not so much, but still pretty useful.
 ```allowControl()``` - turns on control(movement, rotating etc)
 
 ```disallowControl()``` - turns off control(movement, rotating etc)
+
+## example placed in ../scripts/00_script.lua
