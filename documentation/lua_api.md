@@ -141,4 +141,4 @@ Not so much, but still pretty useful.
 
 ```disallowControl()``` - turns off control(movement, rotating etc)
 
-## example placed in ../scripts/00_script.lua
+## example placed in ../scripts/00_script.lua, and everything for resources are placed in ../res/
