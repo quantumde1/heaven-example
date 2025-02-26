@@ -82,6 +82,12 @@ function startDialogCoroutine()
             answerValue = 0
             goto answer_1
         end
+        local testInventory = checkInventoryForObject("test", 0)
+        if testInventory == true then
+            print("Found test in inventory")
+        else
+            print("Test not found!")
+        end
     end)
 end
 
@@ -215,7 +221,10 @@ addCube(15.0, 0.0, 10.0, "Rookie Reporter", globalDialogForNPC2, 1, -1)
 addCube(14.0, 0.0, -10.0, "Editor-in-Chief Mizuno", globalDialogForNPC2, 1, -1)
 -- необходимо, так как движок статически инициализирует количество моделей на экране.
 howMuchModels(3) -- Установка количества моделей в сцене
-
+-- adding objects to inventory
+configureInventoryTabs({"Items", "System"})
+addToInventoryTab("Exit game", 1)
+addToInventoryTab("test", 0)
 -- Установка модели кубов для Сергея и Алексея
 --первый - индекс куба, второй путь, третий размер
 setCubeModel(1, "res/mc.glb", 0.02) -- Установка модели для куба NPC no.1

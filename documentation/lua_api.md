@@ -141,4 +141,10 @@ Not so much, but still pretty useful.
 
 ```disallowControl()``` - turns off control(movement, rotating etc)
 
+```checkInventoryForObject("test", 0)``` - "test" is an object which we're searching and 0 is number of tab where we search for it
+
+```configureInventoryTabs({"Items", "System"})``` -- adding tabs to inventory, must be initialized at game's beginning
+
+```addToInventoryTab("test", 0)``` - "test" is object which we're adding to 0 tab(Items tab)
+
 ## example placed in ../scripts/00_script.lua, and everything for resources are placed in ../res/
