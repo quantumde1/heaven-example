@@ -147,4 +147,8 @@ Not so much, but still pretty useful.
 
 ```addToInventoryTab("test", 0)``` - "test" is object which we're adding to 0 tab(Items tab)
 
+```addPartyMember(120, 0, "quantumde1", 1, 0, 0)``` - 120 is current and MAX hp, 0 is current and MAX mana, "quantumde1" is name, 1 is level, 0 is XP points, 0 is counter(max.count is 6)
+
+```setCameraRotationSpeed(1.0)``` - set speed of camera rotating in-game
+
 ## example placed in ../scripts/00_script.lua, and everything for resources are placed in ../res/
