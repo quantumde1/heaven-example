@@ -151,10 +151,9 @@ Not so much, but still pretty useful.
 
 ```setCameraRotationSpeed(1.0)``` - set speed of camera rotating in-game
 
-```
-walkAnimationValue(10)
-idleAnimationValue(2)
-runAnimationValue(6)
-``` - setting animations for specific actions
+
+```walkAnimationValue(10)``` - setting animations for specific actions
+```idleAnimationValue(2)``` - setting animations for specific actions
+```runAnimationValue(6)``` - setting animations for specific actions
 
 ## example placed in ../scripts/00_script.lua, and everything for resources are placed in ../res/
