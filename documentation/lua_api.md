@@ -49,6 +49,8 @@ WARNING: max count of loaded backgrounds is 5, same as max.count of characters o
 
 ```showUI()``` -- show UI with navigator
 
+```draw2Dtexture(counter)``` -- draw loaded image
+
 ```hideUI()``` -- hide navigator
 
 ```stopDraw2Dcharacter(character count integer from l)``` -- stop draw character texture with
