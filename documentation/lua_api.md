@@ -160,4 +160,12 @@ Not so much, but still pretty useful.
 
 ```runAnimationValue(6)``` - setting animations for specific actions
 
-## example placed in ../scripts/00_script.lua, and everything for resources are placed in ../res/
+```fogSwithcher(0/1``` - 0 is turn off, 1 turn on
+
+### Not working properly functions/not implemented:
+
+```loadScript(filename``` - was meant to load next script. because of shitcode it doesnt work as excepted.
+
+```inputName()``` - meant to enter player's name.
+
+## example script placed in [here](../scripts/00_script.lua) and everything for resources placed in [here](../res/)
