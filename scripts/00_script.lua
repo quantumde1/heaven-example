@@ -158,6 +158,8 @@ drawPlayerModel(1);
 configureInventoryTabs({"Items", "System"})
 addToInventoryTab("Exit game", 1)
 loadScene("res/scene1.json")
+shadersState(0) -- disable shaders, if need to enable you must also provide fs and vs shaders path
+animationsState(0) -- disable animations of movement, if enabled you must set for idle, run and walk
 -- инициализация событий
 _2dEventLoopCoroutine()
 
