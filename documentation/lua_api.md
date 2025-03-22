@@ -133,6 +133,8 @@ Not so much, but still pretty useful.
 
 ```shadersState(1/0)``` - state of lighting/fog shaders. Could be 1 or 0.
 
+```animationsState(1/0)``` - enable or disable movement animations
+
 ```getAnswerValue()``` -- get answer value from dialog.
 
 ```dialogBox("Name", {"Text"}, "", question_page_int, {"Answer 1", "Answer 2"},placement_of_portrait)``` -- question_page_int starts from zero. This is a page, where would be shown questions from next object. Placement of portrait could be 1 or 0. Zero - left, 1 - right.
