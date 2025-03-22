@@ -160,8 +160,11 @@ Not so much, but still pretty useful.
 
 ```runAnimationValue(6)``` - setting animations for specific actions
 
-```fogSwithcher(0/1``` - 0 is turn off, 1 turn on
+```fogSwithcher(0/1)``` - 0 is turn off, 1 turn on
 
+```reloadShaderFragment(path)``` - load fs shader
+
+```reloadShaderVertex(path)``` - load vs shader
 ### Not working properly functions/not implemented:
 
 ```loadScript(filename``` - was meant to load next script. because of shitcode it doesnt work as excepted.
