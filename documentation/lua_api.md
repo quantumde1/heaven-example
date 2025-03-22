@@ -13,8 +13,8 @@ Warning: there is too much functions, and i may forgot to add something. Open an
 I'll divide functions in multiple groups:
 
 1. Music
-2. 3D graphics
-3. 2D graphics.
+2. 2D graphics
+3. 3D graphics
 4. Video playback
 5. Engine specific things.
 
