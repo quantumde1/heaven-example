@@ -99,7 +99,7 @@ I've already said about getPlayerX,Y,Z before. There is same functions for camer
 
 ### 4. Video playback
 
-There is only one func: ```playVideo("filepath")```. It uses libVLC.
+There is only one func: ```playVideo("filepath")```. It uses libVLC. Player can skip video by pressing enter.
 
 ### 5. Engine-specific things.
 
@@ -108,8 +108,6 @@ Not so much, but still pretty useful.
 ```setFriendlyZone(1/0)``` - if not, there would be Random Encounters as in JRPG. Disable if you're creating not RPG/JRPG/etc with this type of combat.
 
 ```getTime()``` - get current time.
-
-```initBattle(is_bossfight, "name_of_enemy", {"enemy dialog"}, count_of_enemies)``` - inits JRPG styled battle. is_bossfight can be 1 on 0.
 
 ```getLocationName()``` - get current location name from the world map.
 
@@ -155,19 +153,22 @@ Not so much, but still pretty useful.
 
 ```setCameraRotationSpeed(1.0)``` - set speed of camera rotating in-game
 
-
 ```walkAnimationValue(10)``` - setting animations for specific actions
 
 ```idleAnimationValue(2)``` - setting animations for specific actions
 
 ```runAnimationValue(6)``` - setting animations for specific actions
 
-```fogSwithcher(0/1)``` - 0 is turn off, 1 turn on
+```Begin2D``` - begin 2D mode for Visual Novel like gameplay
+
+```End2D``` - end 2D mode and start 3D
 
 ```reloadShaderFragment(path)``` - load fs shader
 
 ```reloadShaderVertex(path)``` - load vs shader
-### Not working properly functions/not implemented:
+### Not working properly functions/not implemented/legacy/removed:
+
+```initBattle(is_bossfight, "name_of_enemy", {"enemy dialog"}, count_of_enemies)``` - inits JRPG styled battle. is_bossfight can be 1 on 0.
 
 ```loadScript(filename``` - was meant to load next script. because of shitcode it doesnt work as excepted.
 
