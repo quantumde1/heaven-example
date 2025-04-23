@@ -166,9 +166,11 @@ Not so much, but still pretty useful.
 ```reloadShaderFragment(path)``` - load fs shader
 
 ```reloadShaderVertex(path)``` - load vs shader
+
+```initBattle(int_is_boss, {"file of enemy"})``` - inits JRPG styled battle. is_bossfight can be 1 or 0.
+
 ### Not working properly functions/not implemented/legacy/removed:
 
-```initBattle(is_bossfight, "name_of_enemy", {"enemy dialog"}, count_of_enemies)``` - inits JRPG styled battle. is_bossfight can be 1 on 0.
 
 ```loadScript(filename``` - was meant to load next script. because of shitcode it doesnt work as excepted.
 
