@@ -35,8 +35,6 @@ Also, music is NOT stopped automatically when you play a video. You must stop it
 
 Next functions are available:
 
-WARNING: max count of loaded backgrounds is 5, same as max.count of characters on-screen.
-
 ```stopDraw2Dtexture()``` - no need in argument, simple stopping render of 2d image
 
 ```unload2Dtexture(counter integer from load2Dtexture)``` - unload image from RAM
