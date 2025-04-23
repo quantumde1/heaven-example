@@ -169,11 +169,82 @@ Not so much, but still pretty useful.
 
 ```initBattle(int_is_boss, {"file of enemy"})``` - inits JRPG styled battle. is_bossfight can be 1 or 0.
 
-### Not working properly functions/not implemented/legacy/removed:
+```setPlayerSize(0.020)``` - 0.020 a size of player for collision
 
 
-```loadScript(filename``` - was meant to load next script. because of shitcode it doesnt work as excepted.
+## Scene files
 
-```inputName()``` - meant to enter player's name.
+they're using JSON.
+Here is an example:
+
+```
+{
+    "sceneName": "test",
+    "objects": [
+        {
+            "name": "level1",
+            "type": "model",
+            "modelPath": "res/street.glb",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "scale": {
+                "x": 5,
+                "y": 5,
+                "z": 5
+            },
+            "rotationAngle": 0
+        },
+        {
+            "name": "wall_collision",
+            "type": "collision",
+            "position": {
+                "x": 10,
+                "y": 0,
+                "z": 0
+            },
+            "size": {
+                "x": 15,
+                "y": 15,
+                "z": 15
+            }
+        },
+        {
+            "name": "tree_collision",
+            "type": "collision",
+            "position": {
+                "x": 10,
+                "y": 0,
+                "z": 10
+            },
+            "size": {
+                "x": 15,
+                "y": 15,
+                "z": 15
+            }
+        }
+    ],
+    "environment": {
+        "skybox": "res/first_skybox.png"
+    }
+}
+```
+
+sceneNames and other Names are unusable. Size, types, and so on is pretty straightforward.
+
+Type collision setting collision. May only be a rectangle.
+
+Type model adds model to scene.
+
+Type light adds light source to scene.
+
+In environment you can set skybox. For now its a simple PNG or other supported image.
 
 ## example script placed in [here](../scripts/00_script.lua) and everything for resources placed in [here](../res/)
