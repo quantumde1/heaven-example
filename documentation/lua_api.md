@@ -1,11 +1,10 @@
-Description of Lua Heaven's Engine API.
+    Description of Lua Heaven's Engine API.
 
 ## 1. Main Structure
 
 Script for engine is only one - this is a limitation of my bad code, sorry.
 
-Engine using two loops: one for 3D, another for 2D. They're both executed in main loop in source/graphics/engine.d(if anyone interested in internals of engine, lol).
-They can be swapped, but i do not recommend to do this because of no profit and worse readability of script. Outside of loops, basic things being set up, like characters on map, MC model, camera position, etc. 
+Engine logic placed in EventLoop.
 
 ### Lua functions.
 
@@ -119,6 +118,8 @@ Not so much, but still pretty useful.
 5. left;
 6. opmenu;
 
+```loadScript(path_to_script)``` - loads new script. Must have all boilerplate code which you see in example's end without any loop(or similar).
+
 ```isKeyPressed('key_char')``` - direct bind to raylib, get current pressed button.
 
 ```getBattleStatus()``` - is battle ended or not?
@@ -127,7 +128,7 @@ Not so much, but still pretty useful.
 
 ```getDialogName()``` - returns name of cube with which player talking
 
-```shadersState(1/0)``` - state of lighting/fog shaders. Could be 1 or 0.
+```shadersState(1/0)``` - state of shaders. Could be 1 or 0.
 
 ```animationsState(1/0)``` - enable or disable movement animations
 
@@ -167,8 +168,9 @@ Not so much, but still pretty useful.
 
 ```initBattle(int_is_boss, {"file of enemy"})``` - inits JRPG styled battle. is_bossfight can be 1 or 0.
 
-```setPlayerSize(0.020)``` - 0.020 a size of player for collision
+```setPlayerSize(0.020, 0.020, 0.020)``` - 0.020, 0.020, 0.020 a size of player model
 
+```setPlayerCollisionSize(0.020, 0.020, 0.020)``` - 0.020, 0.020, 0.020 is a size of player's collision
 
 ## Scene files
 
@@ -226,6 +228,11 @@ Here is an example:
                 "x": 15,
                 "y": 15,
                 "z": 15
+            },
+            "rotation": {
+                "x": 90,
+                "y": 90.
+                "z": 90
             }
         }
     ],
@@ -237,7 +244,7 @@ Here is an example:
 
 sceneNames and other Names are unusable. Size, types, and so on is pretty straightforward.
 
-Type collision setting collision. May only be a rectangle.
+Type collision setting collision. May only be a rectangle. May be rotated, scaled, positioned.
 
 Type model adds model to scene.
 
