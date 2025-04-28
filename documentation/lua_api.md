@@ -2,8 +2,6 @@
 
 ## 1. Main Structure
 
-Script for engine is only one - this is a limitation of my bad code, sorry.
-
 Engine logic placed in EventLoop.
 
 ### Lua functions.
