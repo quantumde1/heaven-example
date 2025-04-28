@@ -1,4 +1,4 @@
-    Description of Lua Heaven's Engine API.
+# API engine description
 
 ## 1. Main Structure
 
@@ -103,6 +103,8 @@ There is only one func: ```playVideo("filepath")```. It uses libVLC. Player can 
 Not so much, but still pretty useful.
 
 ```setFriendlyZone(1/0)``` - if not, there would be Random Encounters as in JRPG. Disable if you're creating not RPG/JRPG/etc with this type of combat.
+
+```setFont(font)``` - file with font. must have cyrillic and latin, in format ttf, fnt or png with raylib correct format.
 
 ```getTime()``` - get current time.
 
