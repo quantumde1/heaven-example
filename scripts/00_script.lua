@@ -176,15 +176,7 @@ function _2dEventLoopCoroutine()
     end)
 end
 
-function _2dEventLoop()
-    updateSmoothCameraMove()
-    
-    if dialogCoroutine and coroutine.status(dialogCoroutine) ~= "dead" then
-        coroutine.resume(dialogCoroutine)
-    end
-end
-
-function _3dEventLoop()
+function EventLoop()
     if currentStage == 1 then
         if checkCoordinatesEquality(getPlayerX(), getPlayerY(), getPlayerZ(), 0, 0, -10) == true then
             showHint("Key is lying here.")
@@ -209,6 +201,11 @@ function _3dEventLoop()
         else
             hideHint()
         end
+    end
+    updateSmoothCameraMove()
+    
+    if dialogCoroutine and coroutine.status(dialogCoroutine) ~= "dead" then
+        coroutine.resume(dialogCoroutine)
     end
 end
 
