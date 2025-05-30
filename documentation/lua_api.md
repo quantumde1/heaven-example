@@ -168,6 +168,16 @@ Not so much, but still pretty useful.
 
 ```reloadShaderFragment(path)``` - load fs shader
 
+```playSfx(filename)``` - play SFX sound
+
+```loadAnimationUI("filename of archive in res/uifx", "name of file")``` - name of file must start from your name of file, then _frame, then _number.png
+
+```playAnimationUI()``` - plays UI animation
+
+```unloadAnimationUI()``` - unloads UI animation
+
+```stopAnimationUI()``` - stops UI animation
+
 ```reloadShaderVertex(path)``` - load vs shader
 
 ```initBattle(int_is_boss, {"file of enemy"})``` - inits JRPG styled battle. is_bossfight can be 1 or 0.
