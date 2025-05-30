@@ -32,6 +32,10 @@ Also, music is NOT stopped automatically when you play a video. You must stop it
 
 Next functions are available:
 
+```begin2D``` - begin 2D render mode
+
+```end2D``` - stops 2D mode
+
 ```stopDraw2Dtexture()``` - no need in argument, simple stopping render of 2d image
 
 ```unload2Dtexture(counter integer from load2Dtexture)``` - unload image from RAM
